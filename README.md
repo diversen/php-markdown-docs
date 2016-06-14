@@ -27,6 +27,19 @@ Usage:
 
 <!-- toc -->
 
+- [Properties](#properties)
+  * [protected output](#protected-output)
+- [Methods](#methods)
+  * [public classToMD](#public-classtomd)
+  * [protected getNL](#protected-getnl)
+  * [protected parseAnnotations](#protected-parseannotations)
+  * [protected parseParams](#protected-parseparams)
+  * [protected sectionHeader](#protected-sectionheader)
+  * [protected methodHeader](#protected-methodheader)
+  * [public getOutput](#public-getoutput)
+
+<!-- tocstop -->
+
 ### Properties
 
 #### protected output 
