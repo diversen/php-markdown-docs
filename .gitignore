@@ -1,0 +1,4 @@
+composer-master.json
+composer-master.lock
+nbproject/*
+vendor/*

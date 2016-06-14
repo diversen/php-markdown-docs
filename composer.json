@@ -1,0 +1,27 @@
+{
+    "name": "diversen/markdown-docs",
+    "description": "Generate Markdown documentation from PHP source files. Useful for generating README.md for e.g. github.com",
+    "homepage": "https://github.com/diversen/php-markdown-docs",
+    "keywords": ["markdown", "phpdocs"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dennis Iversen",
+            "email": "dennis.iversen@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "nette/reflection": "^2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "diversen\\": ""
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
