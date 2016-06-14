@@ -5,6 +5,9 @@ namespace diversen;
 use Nette\Reflection\ClassType;
 
 /**
+ * 
+ * 
+ * 
  * ### About
  * 
  * Simple class that generates simple markdown from php files (using phpdocs format)
@@ -18,11 +21,11 @@ use Nette\Reflection\ClassType;
  *     
  *     markdown-toc -i README.md 
  * 
- * ### Install:
+ * ### Install
  * 
  *     composer require diversen/php-markdown-docs
  * 
- * ### Usage: 
+ * ### Usage
  * ~~~php
  *     use diversen\markdownDocs;
  * 
@@ -50,9 +53,13 @@ class markdownDocs  {
         $r = new ClassType($class);
 
         // Class header and description
+        
+        
         $this->output.= $this->sectionHeader($r->getName());
-        $this->output.= $r->getDescription() . $this->getNL();
         $this->output.= '<!-- toc -->' . $this->getNL();
+        
+        $this->output.= $r->getDescription() . $this->getNL();
+        
         
         // Get methods and props
         $methods = $r->getMethods();

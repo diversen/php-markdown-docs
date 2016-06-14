@@ -1,5 +1,23 @@
 ### diversen\markdownDocs
 
+<!-- toc -->
+
+- [About](#about)
+- [Install](#install)
+- [Usage](#usage)
+- [Properties](#properties)
+  * [protected output](#protected-output)
+- [Methods](#methods)
+  * [public classToMD](#public-classtomd)
+  * [protected getNL](#protected-getnl)
+  * [protected parseAnnotations](#protected-parseannotations)
+  * [protected parseParams](#protected-parseparams)
+  * [protected sectionHeader](#protected-sectionheader)
+  * [protected methodHeader](#protected-methodheader)
+  * [public getOutput](#public-getoutput)
+
+<!-- tocstop -->
+
 ### About
 
 Simple class that generates simple markdown from php files (using phpdocs format)
@@ -13,11 +31,11 @@ You can also inject a TOC using `markdown-toc`:
     
     markdown-toc -i README.md 
 
-### Install:
+### Install
 
     composer require diversen/php-markdown-docs
 
-### Usage: 
+### Usage
 ~~~php
     use diversen\markdownDocs;
 
@@ -27,8 +45,6 @@ You can also inject a TOC using `markdown-toc`:
      
     echo $md->getOutput();
 ~~~
-
-<!-- toc -->
 
 ### Properties
 
