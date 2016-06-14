@@ -16,7 +16,7 @@ Install:
     composer require diversen/php-markdown-docs
 
 Usage: 
-
+~~~php
     use diversen\markdownDocs;
 
     $md = new markdownDocs();
@@ -24,21 +24,9 @@ Usage:
     $md->classToMD($class);
      
     echo $md->getOutput();
+~~~
 
 <!-- toc -->
-
-- [Properties](#properties)
-  * [protected output](#protected-output)
-- [Methods](#methods)
-  * [public classToMD](#public-classtomd)
-  * [protected getNL](#protected-getnl)
-  * [protected parseAnnotations](#protected-parseannotations)
-  * [protected parseParams](#protected-parseparams)
-  * [protected sectionHeader](#protected-sectionheader)
-  * [protected methodHeader](#protected-methodheader)
-  * [public getOutput](#public-getoutput)
-
-<!-- tocstop -->
 
 ### Properties
 
