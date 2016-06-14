@@ -1,4 +1,4 @@
-### diversen\markdownDocs
+##### diversen\markdownDocs
 
 Very simple class that generates simple markdown from phpdoc format
 The real work is done through `Nette\Reflection` 
@@ -17,33 +17,33 @@ Usage:
      
     echo $md->getOutput();
 
-### Properties
+##### Properties
 
-##### protected output 
+###### protected output 
 
     Var holding markdown output
 
-### Methods
+##### Methods
 
-##### public classToMD 
+###### public classToMD 
 
     Generates markdown output for a specified class
 
     @param string $class e.g. `PDO` or a user class like `diversen\markdownDocs`
 
-##### protected getNL 
+###### protected getNL 
 
     Returns two newlines. Used when creating the markdown string
 
     @return string $str
 
-##### protected parseAnnotations 
+###### protected parseAnnotations 
 
     Add markdown to output from description, params and return
 
     @param array $ary array of annotation
 
-##### protected parseParams 
+###### protected parseParams 
 
     Parses params from annotation
 
@@ -51,7 +51,7 @@ Usage:
 
     @return string $str markdown
 
-##### protected sectionHeader 
+###### protected sectionHeader 
 
     Return markdown headers
 
@@ -59,7 +59,7 @@ Usage:
 
     @return type
 
-##### protected methodHeader 
+###### protected methodHeader 
 
     Return method headers
 
@@ -69,7 +69,7 @@ Usage:
 
     @return string $str
 
-##### public getOutput 
+###### public getOutput 
 
     Returns the markdown phpdocs
 

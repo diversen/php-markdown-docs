@@ -148,7 +148,7 @@ class markdownDocs  {
      * @return type
      */
     protected function sectionHeader ($name) {
-        return "### $name". $this->getNL();
+        return "##### $name". $this->getNL();
     }
     
     /**
@@ -159,7 +159,7 @@ class markdownDocs  {
      */
     protected function methodHeader ($name, $mods) {
         $mod_str = implode(' ', $mods);
-        return "##### " . "$mod_str $name \n\n";
+        return "###### " . "$mod_str $name \n\n";
     }
 
     /**
