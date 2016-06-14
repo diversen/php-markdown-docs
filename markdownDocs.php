@@ -12,6 +12,10 @@ use Nette\Reflection\ClassType;
  * 
  *     php test.php > README.md
  * 
+ * You can also inject a TOC using `markdown-toc`: 
+ *     
+ *     markdown-toc -i README.md 
+ * 
  * Install:
  * 
  *     composer require diversen/php-markdown-docs
@@ -153,7 +157,7 @@ class markdownDocs  {
      * @return type
      */
     protected function sectionHeader ($name) {
-        return "##### $name". $this->getNL();
+        return "### $name". $this->getNL();
     }
     
     /**
@@ -164,7 +168,7 @@ class markdownDocs  {
      */
     protected function methodHeader ($name, $mods) {
         $mod_str = implode(' ', $mods);
-        return "###### " . "$mod_str $name \n\n";
+        return "#### " . "$mod_str $name \n\n";
     }
 
     /**
