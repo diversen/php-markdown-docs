@@ -5,10 +5,12 @@ namespace diversen;
 use Nette\Reflection\ClassType;
 
 /**
+ * ### About
+ * 
  * Simple class that generates simple markdown from php files (using phpdocs format)
  * The real work is done through `Nette\Reflection` https://github.com/nette/reflection
  * 
- * This README.md is created with `php-markdown-docs` using the test.php file. Like this:
+ * This README.md is created with `php-markdown-docs` using the `test.php` file. Like this:
  * 
  *     php test.php > README.md
  * 
@@ -16,11 +18,11 @@ use Nette\Reflection\ClassType;
  *     
  *     markdown-toc -i README.md 
  * 
- * Install:
+ * ### Install:
  * 
  *     composer require diversen/php-markdown-docs
  * 
- * Usage: 
+ * ### Usage: 
  * ~~~php
  *     use diversen\markdownDocs;
  * 
