@@ -46,6 +46,7 @@ class markdownDocs  {
         // Class header and description
         $this->output.= $this->sectionHeader($r->getName());
         $this->output.= $r->getDescription() . $this->getNL();
+        $this->output.= '<!-- toc -->' . $this->getNL();
         
         // Get methods and props
         $methods = $r->getMethods();
