@@ -21,7 +21,7 @@ use Nette\Reflection\ClassType;
  *     composer require diversen/php-markdown-docs
  * 
  * Usage: 
- * 
+ * ~~~php
  *     use diversen\markdownDocs;
  * 
  *     $md = new markdownDocs();
@@ -29,7 +29,7 @@ use Nette\Reflection\ClassType;
  *     $md->classToMD($class);
  *      
  *     echo $md->getOutput();
- * 
+ * ~~~
  */
 class markdownDocs  {
     
