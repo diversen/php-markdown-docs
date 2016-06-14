@@ -10,6 +10,7 @@
 - [Methods](#methods)
   * [public classToMD](#public-classtomd)
   * [protected getNL](#protected-getnl)
+  * [protected getModifiers](#protected-getmodifiers)
   * [protected parseAnnotations](#protected-parseannotations)
   * [protected parseParams](#protected-parseparams)
   * [protected sectionHeader](#protected-sectionheader)
@@ -67,9 +68,17 @@ You can also inject a TOC using `markdown-toc`:
 
     @return string $str
 
+#### protected getModifiers 
+
+    Returns and array of modifiers from a method or a property
+
+    @param object $method
+
+    @return array $ary, e.g. ['public', 'static']
+
 #### protected parseAnnotations 
 
-    Add markdown to output from description, params and return
+    Add markdown to output from description, params
 
     @param array $ary array of annotation
 
@@ -83,11 +92,11 @@ You can also inject a TOC using `markdown-toc`:
 
 #### protected sectionHeader 
 
-    Return markdown headers
+    Return a header
 
-    @param type $name
+    @param string $name
 
-    @return type
+    @return string $str markdown header
 
 #### protected methodHeader 
 
@@ -97,11 +106,11 @@ You can also inject a TOC using `markdown-toc`:
 
     @param array $mods modifiers
 
-    @return string $str
+    @return string $str markdown header
 
 #### public getOutput 
 
     Returns the markdown phpdocs
 
-    @return string
+    @return string $output the final markdown output
 

@@ -109,7 +109,7 @@ class markdownDocs  {
      * @param object $method
      * @return array $ary, e.g. ['public', 'static']
      */
-    private function getModifiers ($method) {
+    protected function getModifiers ($method) {
         $mods = array ();
         
         if ($method->isPublic()) {
@@ -128,7 +128,7 @@ class markdownDocs  {
     }
 
     /**
-     * Add markdown to output from description, params and return   
+     * Add markdown to output from description, params  
      * @param array $ary array of annotation
      */
     protected function parseAnnotations ($ary) {
@@ -145,7 +145,6 @@ class markdownDocs  {
         if (isset($ary['return'])) {
             $this->output.= "    @return " . $ary['return']['0'] . "\n\n";
         }
-
     }
     
     /**
@@ -162,9 +161,9 @@ class markdownDocs  {
     }
     
     /**
-     * Return markdown headers
-     * @param type $name
-     * @return type
+     * Return a header
+     * @param string $name
+     * @return string $str markdown header
      */
     protected function sectionHeader ($name) {
         return "### $name". $this->getNL();
@@ -174,7 +173,7 @@ class markdownDocs  {
      * Return method headers
      * @param string $name
      * @param array $mods modifiers
-     * @return string $str
+     * @return string $str markdown header
      */
     protected function methodHeader ($name, $mods) {
         $mod_str = implode(' ', $mods);
@@ -183,7 +182,7 @@ class markdownDocs  {
 
     /**
      * Returns the markdown phpdocs
-     * @return string
+     * @return string $output the final markdown output
      */
     public function getOutput () {
         return $this->output;
