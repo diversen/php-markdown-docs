@@ -15,3 +15,6 @@
     echo $md->getOutput();
 ~~~
 
+### As binary
+
+    ./vendor/bin/markdown-docs generate --public --run 'diversen\markdownDocs' 'another\class'
