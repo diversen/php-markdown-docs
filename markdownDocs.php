@@ -54,20 +54,22 @@ class markdownDocs  {
      */
     public function classToMD ($class) {
         
-        static $toc;
+        static $first;
         
         $r = new ClassType($class);
         
         // TOC
-        if (!$toc) {
+        if (!$first) {
+            $json = file_get_contents('composer.json');
+            $ary = json_decode($json, true);
+            //print_r($ary); die;
+            $this->output.= $this->sectionHeader('Package: ' . $ary['name'], 3);
             $this->output.= '<!-- toc -->' . $this->getNL();
-            $toc = true;
+            $first = true;
         }
-        
 
-       
-        
         $this->output.= $this->sectionHeader('Class: ' . $r->getName(), 3);
+        
         // Class description
         $this->output.= $r->getDescription() . $this->getNL();
         
