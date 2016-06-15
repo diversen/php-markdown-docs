@@ -31,14 +31,26 @@
 ### As binary
 
     ./vendor/bin/markdown-docs generate --public --run 'diversen\markdownDocs' 'another\class'
-### Class: diversen\markdownDocs
+* * * * *
+
+ ### Class: diversen\markdownDocs
+
+* * * * * 
 
 Simple class that generates `markdown` from `php` source files (using phpdocs format)
 The real work is done through `Nette\Reflection`. See: https://github.com/nette/reflection
 
-#### Properties
+* * * * *
 
-#### Methods
+ #### Properties
+
+* * * * * 
+
+* * * * *
+
+ #### Methods
+
+* * * * * 
 
 ##### public classToMD
 
