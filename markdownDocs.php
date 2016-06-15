@@ -52,9 +52,6 @@ class markdownDocs  {
     public function classToMD ($class) {
         
         $r = new ClassType($class);
-
-        // Class header and description
-        //$this->output.= $this->sectionHeader($r->getName());
         
         // TOC
         $this->output.= '<!-- toc -->' . $this->getNL();
@@ -111,7 +108,12 @@ class markdownDocs  {
         }       
     }
     
+    /**
+     * Parses a method or a property
+     * @param object $method
+     */
     protected function parseMethod ($method) {
+        var_dump($method); die;
         $mods = $this->getModifiers($method); 
         $this->output.= $this->methodHeader($method->name, $mods);
         $ary = $method->getAnnotations();
