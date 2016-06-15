@@ -1,6 +1,7 @@
 #!/usr/bin/env php
 <?php
 
+include_once "vendor/autoload.php";
 include_once "../vendor/autoload.php";
 include_once "../markdownDocs.php";
 

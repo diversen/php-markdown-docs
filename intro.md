@@ -25,4 +25,7 @@
 
 ### Usage as PHAR
 
+Run it inside a dir where there is a vendor/autoload.php file, and specify
+the class as last argument. E.g: 
+
     php-markdown-docs.phar generate --run --public 'diversen\cli'
