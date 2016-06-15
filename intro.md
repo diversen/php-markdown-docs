@@ -13,7 +13,7 @@ with maybe a couple of classes.
 
     composer require diversen/php-markdown-docs
 
-### Usage
+### Usage (lib)
 ~~~php
     use diversen\markdownDocs;
 
@@ -25,13 +25,16 @@ with maybe a couple of classes.
     echo $md->getOutput();
 ~~~
 
-### As binary
+### Usage (binary)
+
+When the lib is installed you have access to the `markdown-docs` binary, and you can
+use in a way similar to this:
 
     ./vendor/bin/markdown-docs generate --public --run 'diversen\markdownDocs' 'another\class'
 
-This will just output the markdown docs to stdout, so you will need to collect it.
+This will just output the markdown documentation to `stdout`, so you will need to redirect it, e.g. to a file.
     
-If you want both `private, public, and protected` methods in the docs, you can remove the
+If you want both `private, public, and protected` methods in the documentation, you can remove the
 `--public` flag. This flag means that only `public` properties and methods will be included in
 the output.  
  
