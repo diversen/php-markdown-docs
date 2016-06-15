@@ -98,6 +98,7 @@ function generate_docs($options) {
         common::abort('Specify classes to generate documentation from');
     }
 
+    $str = '';
     foreach ($options['classes'] as $class) {
         $md->classToMD($class, $options);
         $str.= $md->getOutput();
