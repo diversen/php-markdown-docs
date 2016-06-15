@@ -10,7 +10,7 @@
 	
     phar-composer build php-markdown-docs/
 
-    [https://github.com/clue/phar-composer](https://github.com/clue/phar-composer)
+[https://github.com/clue/phar-composer](https://github.com/clue/phar-composer)
 
 ### Usage
 ~~~php
