@@ -67,6 +67,8 @@ You can also inject a TOC using `markdown-toc`:
 
     @param string $class e.g. `PDO` or a user class like `diversen\markdownDocs`
 
+    @return void the method adds to $output
+
 ##### public getOutput
 
     Returns the markdown phpdocs
@@ -75,7 +77,9 @@ You can also inject a TOC using `markdown-toc`:
 
 ##### protected parseMethod
 
-    No description
+    Parses a method or a property
+
+    @param object \Nette\Reflection\Property
 
 ##### protected getNL
 

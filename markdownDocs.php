@@ -48,6 +48,7 @@ class markdownDocs  {
     /**
      * Generates markdown output for a specified class
      * @param string $class e.g. `PDO` or a user class like `diversen\markdownDocs`
+     * @return void the method adds to $output
      */
     public function classToMD ($class) {
         
@@ -110,10 +111,9 @@ class markdownDocs  {
     
     /**
      * Parses a method or a property
-     * @param object $method
+     * @param object \Nette\Reflection\Property
      */
     protected function parseMethod ($method) {
-        var_dump($method); die;
         $mods = $this->getModifiers($method); 
         $this->output.= $this->methodHeader($method->name, $mods);
         $ary = $method->getAnnotations();
