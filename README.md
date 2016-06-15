@@ -2,11 +2,12 @@
 
 <!-- toc -->
 
+- [Class: diversen\markdownDocs](#class-diversenmarkdowndocs)
 - [About](#about)
 - [Install](#install)
 - [Usage](#usage)
-- [Class: diversen\markdownDocs](#class-diversenmarkdowndocs)
   * [Properties](#properties)
+    + [public toc](#public-toc)
     + [protected output](#protected-output)
   * [Methods](#methods)
     + [public classToMD](#public-classtomd)
@@ -19,8 +20,15 @@
     + [protected parseParams](#protected-parseparams)
     + [protected sectionHeader](#protected-sectionheader)
     + [protected methodHeader](#protected-methodheader)
+- [Class: diversen\classTest](#class-diversenclasstest)
+  * [Properties](#properties-1)
+    + [protected output](#protected-output-1)
+  * [Methods](#methods-1)
+    + [public flaf](#public-flaf)
 
 <!-- tocstop -->
+
+### Class: diversen\markdownDocs
 
 ### About
 
@@ -51,9 +59,11 @@ You can also inject a TOC using `markdown-toc`:
     echo $md->getOutput();
 ~~~
 
-### Class: diversen\markdownDocs
-
 #### Properties
+
+##### public toc
+
+    No description
 
 ##### protected output
 
@@ -132,4 +142,22 @@ You can also inject a TOC using `markdown-toc`:
     @param array $mods modifiers
 
     @return string $str markdown header
+
+### Class: diversen\classTest
+
+Another class. Just a test class
+
+#### Properties
+
+##### protected output
+
+    Var holding markdown output
+
+#### Methods
+
+##### public flaf
+
+    No description
+
+    @return string hello world
 
