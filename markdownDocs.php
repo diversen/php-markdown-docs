@@ -41,15 +41,13 @@ class markdownDocs  {
         $this->output.= $this->sectionHeader("Properties");
         $this->generatePropsMD($r, $props, $options);
         
-        
+        // Parse methods
         $this->output.= $this->sectionHeader("Methods");
         $this->generateMethodMD($methods, $options);     
     }
     
     protected function generateMethodMD ($methods, $options) {
-        
-        
-        
+
         foreach ($methods as $method) {
             if ($method->isPublic()) {
                  $this->parseMethod($method);
@@ -105,6 +103,7 @@ class markdownDocs  {
      * @param object \Nette\Reflection\Property
      */
     protected function parseMethod ($method) {
+        
         $mods = $this->getModifiers($method); 
         $this->output.= $this->methodHeader($method->name, $mods);
         $ary = $method->getAnnotations();
