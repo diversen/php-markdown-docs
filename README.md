@@ -33,8 +33,6 @@
     ./vendor/bin/markdown-docs generate --public --run 'diversen\markdownDocs' 'another\class'
 
 
-* * * * *
-
 ### Class: diversen\markdownDocs
 
 * * * * *
@@ -44,15 +42,11 @@ The real work is done through `Nette\Reflection`. See: https://github.com/nette/
 
 
 
-* * * * *
-
 #### Properties
 
 * * * * *
 
 
-
-* * * * *
 
 #### Methods
 
