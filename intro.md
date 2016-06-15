@@ -32,7 +32,7 @@ with maybe a couple of classes.
 This will just output the markdown docs to stdout, so you will need to collect it.
     
 If you want both `private, public, and protected` methods in the docs, you can remove the
-`--public` flag. This i flag means that only `public` properties and methods will be included in
+`--public` flag. This flag means that only `public` properties and methods will be included in
 the output.  
  
 You can run it on any class that is autoloaded with `composer` `autoload.php`  
