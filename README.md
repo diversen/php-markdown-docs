@@ -1,21 +1,24 @@
-### diversen\markdownDocs
+
 
 <!-- toc -->
 
 - [About](#about)
 - [Install](#install)
 - [Usage](#usage)
-- [Properties](#properties)
-  * [protected output](#protected-output)
-- [Methods](#methods)
-  * [public classToMD](#public-classtomd)
-  * [protected getNL](#protected-getnl)
-  * [protected getModifiers](#protected-getmodifiers)
-  * [protected parseAnnotations](#protected-parseannotations)
-  * [protected parseParams](#protected-parseparams)
-  * [protected sectionHeader](#protected-sectionheader)
-  * [protected methodHeader](#protected-methodheader)
-  * [public getOutput](#public-getoutput)
+- [diversen\markdownDocs](#diversenmarkdowndocs)
+  * [Properties](#properties)
+    + [protected output](#protected-output)
+  * [Methods](#methods)
+    + [public classToMD](#public-classtomd)
+    + [public getOutput](#public-getoutput)
+    + [protected parseMethod](#protected-parsemethod)
+    + [protected getNL](#protected-getnl)
+    + [protected getTab](#protected-gettab)
+    + [protected getModifiers](#protected-getmodifiers)
+    + [protected parseAnnotations](#protected-parseannotations)
+    + [protected parseParams](#protected-parseparams)
+    + [protected sectionHeader](#protected-sectionheader)
+    + [protected methodHeader](#protected-methodheader)
 
 <!-- tocstop -->
 
@@ -48,27 +51,45 @@ You can also inject a TOC using `markdown-toc`:
     echo $md->getOutput();
 ~~~
 
-### Properties
+### diversen\markdownDocs
 
-#### protected output 
+#### Properties
+
+##### protected output
 
     Var holding markdown output
 
-### Methods
+#### Methods
 
-#### public classToMD 
+##### public classToMD
 
     Generates markdown output for a specified class
 
     @param string $class e.g. `PDO` or a user class like `diversen\markdownDocs`
 
-#### protected getNL 
+##### public getOutput
+
+    Returns the markdown phpdocs
+
+    @return string $output the final markdown output
+
+##### protected parseMethod
+
+    No description
+
+##### protected getNL
 
     Returns two newlines. Used when creating the markdown string
 
     @return string $str
 
-#### protected getModifiers 
+##### protected getTab
+
+    Returns two newlines. Used when creating the markdown string
+
+    @return string $str
+
+##### protected getModifiers
 
     Returns and array of modifiers from a method or a property
 
@@ -76,13 +97,13 @@ You can also inject a TOC using `markdown-toc`:
 
     @return array $ary, e.g. ['public', 'static']
 
-#### protected parseAnnotations 
+##### protected parseAnnotations
 
     Add markdown to output from description, params
 
     @param array $ary array of annotation
 
-#### protected parseParams 
+##### protected parseParams
 
     Parses params from annotation
 
@@ -90,7 +111,7 @@ You can also inject a TOC using `markdown-toc`:
 
     @return string $str markdown
 
-#### protected sectionHeader 
+##### protected sectionHeader
 
     Return a header
 
@@ -98,7 +119,7 @@ You can also inject a TOC using `markdown-toc`:
 
     @return string $str markdown header
 
-#### protected methodHeader 
+##### protected methodHeader
 
     Return method headers
 
@@ -107,10 +128,4 @@ You can also inject a TOC using `markdown-toc`:
     @param array $mods modifiers
 
     @return string $str markdown header
-
-#### public getOutput 
-
-    Returns the markdown phpdocs
-
-    @return string $output the final markdown output
 

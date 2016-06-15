@@ -1,0 +1,11 @@
+#!/usr/bin/env php
+<?php
+
+
+require __DIR__ . '/../vendor/autoload.php';
+
+use JLaso\ConsoleArg\ConsoleArgs;
+
+$consoleArgs = new ConsoleArgs($argv, array('help'), array('arg1', 'arg2'));
+echo $arg1 = $consoleArgs->getArg1;
+$arg2 = $consoleArgs->getArg2;

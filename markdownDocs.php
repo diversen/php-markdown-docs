@@ -54,47 +54,71 @@ class markdownDocs  {
         $r = new ClassType($class);
 
         // Class header and description
+        //$this->output.= $this->sectionHeader($r->getName());
         
-        
-        $this->output.= $this->sectionHeader($r->getName());
+        // TOC
         $this->output.= '<!-- toc -->' . $this->getNL();
         
+        // Class description
         $this->output.= $r->getDescription() . $this->getNL();
-        
-        
+
         // Get methods and props
-        $methods = $r->getMethods();
-        $props  = $r->getDefaultProperties();
+        $methods    = $r->getMethods();
+        $props      = $r->getDefaultProperties();
+        
+        $this->output.= $this->sectionHeader($r->getName(), 3);
         
         // Parse properties
         $this->output.= $this->sectionHeader("Properties");
- 
         foreach ($props as $key => $property) {
             $prop = $r->getProperty($key);
-            $prop_mods = $this->getModifiers($prop);
-            
-            if ($prop->isPublic() OR $prop->isProtected()) {
-                
-                $this->output.= $this->methodHeader($prop->name, $prop_mods);
-                $ary = $prop->getAnnotations();
-                $this->output.= $this->parseAnnotations($ary);
+            if ($prop->isPublic()) {
+                 $this->parseMethod($prop);
+            }
+        }
+        
+        foreach ($props as $key => $property) {
+            $prop = $r->getProperty($key);
+            if ($prop->isProtected()) {
+                 $this->parseMethod($prop);
+            }
+        }
+        
+        foreach ($props as $key => $property) {
+            $prop = $r->getProperty($key);
+            if ($prop->isPrivate()) {
+                 $this->parseMethod($prop);
+            }
+        }
+        
+        $this->output.= $this->sectionHeader("Methods");
+        foreach ($methods as $method) {
+            if ($method->isPublic()) {
+                 $this->parseMethod($method);
             }
         }
 
-        $this->output.= $this->sectionHeader("Methods");
-        
-        // Parse methods
-        foreach($methods as $method) {
-            
-            $mods = $this->getModifiers($method);                  
-            if ($method->isPublic() OR $method->isProtected()) {
-                
-                $this->output.= $this->methodHeader($method->name, $mods);
-                $ary = $method->getAnnotations();
-                $this->output.= $this->parseAnnotations($ary);
+        foreach ($methods as $method) {
+            if ($method->isProtected()) {
+                 $this->parseMethod($method);
             }
-        }   
+        }
+
+        foreach ($methods as $method) {
+            if ($method->isPrivate()) {
+                 $this->parseMethod($method);
+            }
+        }       
     }
+    
+    protected function parseMethod ($method) {
+        $mods = $this->getModifiers($method); 
+        $this->output.= $this->methodHeader($method->name, $mods);
+        $ary = $method->getAnnotations();
+        $this->output.= $this->parseAnnotations($ary);
+    }
+
+
     
     /**
      * Returns two newlines. Used when creating the markdown string
@@ -102,6 +126,14 @@ class markdownDocs  {
      */
     protected function getNL() {
         return PHP_EOL . PHP_EOL;
+    }
+    
+    /**
+     * Returns two newlines. Used when creating the markdown string
+     * @return string $str
+     */
+    protected function getTab() {
+        return "    ";
     }
     
     /**
@@ -133,9 +165,9 @@ class markdownDocs  {
      */
     protected function parseAnnotations ($ary) {
         if (isset($ary['description'])) {
-            $this->output.= "    " . $ary['description']['0'] . "\n\n";
+            $this->output.= $this->getTab() . $ary['description']['0'] . $this->getNL();
         } else {
-            $this->output.= "    " . "No description\n\n";
+            $this->output.= $this->getTab() . "No description" . $this->getNL();
         }
         
         if (isset($ary['param'])) {
@@ -143,7 +175,7 @@ class markdownDocs  {
         }
         
         if (isset($ary['return'])) {
-            $this->output.= "    @return " . $ary['return']['0'] . "\n\n";
+            $this->output.= $this->getTab() . "@return " . $ary['return']['0'] . $this->getNL();
         }
     }
     
@@ -155,7 +187,7 @@ class markdownDocs  {
     protected function parseParams ($ary) {
         $str = '';
         foreach($ary as $val) {
-           $str.= "    @param " . $val . "\n\n";
+           $str.= $this->getTab() . "@param " . $val . $this->getNL();
         }
         return $str;
     }
@@ -165,8 +197,9 @@ class markdownDocs  {
      * @param string $name
      * @return string $str markdown header
      */
-    protected function sectionHeader ($name) {
-        return "### $name". $this->getNL();
+    protected function sectionHeader ($name, $level = 4) {
+        $header = str_repeat('#', $level);
+        return "$header $name". $this->getNL();
     }
     
     /**
@@ -175,9 +208,10 @@ class markdownDocs  {
      * @param array $mods modifiers
      * @return string $str markdown header
      */
-    protected function methodHeader ($name, $mods) {
+    protected function methodHeader ($name, $mods, $level = 5) {
+        $header = str_repeat('#', $level);
         $mod_str = implode(' ', $mods);
-        return "#### " . "$mod_str $name \n\n";
+        return "$header " . "$mod_str $name" . $this->getNL();
     }
 
     /**
