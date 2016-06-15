@@ -10,10 +10,6 @@
   * [Methods](#methods)
     + [public classToMD](#public-classtomd)
     + [public getOutput](#public-getoutput)
-- [Class: diversen\classTest](#class-diversenclasstest)
-  * [Properties](#properties-1)
-  * [Methods](#methods-1)
-    + [public flaf](#public-flaf)
 
 <!-- tocstop -->
 
@@ -62,18 +58,4 @@ The real work is done through `Nette\Reflection`. See: https://github.com/nette/
     Returns the markdown phpdocs
 
     @return string $output the final markdown output
-
-### Class: diversen\classTest
-
-Another class. Just a test class
-
-#### Properties
-
-#### Methods
-
-##### public flaf
-
-    No description
-
-    @return string hello world
 
