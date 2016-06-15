@@ -1,48 +1,4 @@
-### Package: diversen/php-markdown-docs
-
 <!-- toc -->
-
-- [Class: diversen\markdownDocs](#class-diversenmarkdowndocs)
-- [About](#about)
-- [Install](#install)
-- [Usage](#usage)
-  * [Properties](#properties)
-    + [public toc](#public-toc)
-    + [protected output](#protected-output)
-  * [Methods](#methods)
-    + [public classToMD](#public-classtomd)
-    + [public getOutput](#public-getoutput)
-    + [protected parseMethod](#protected-parsemethod)
-    + [protected getNL](#protected-getnl)
-    + [protected getTab](#protected-gettab)
-    + [protected getModifiers](#protected-getmodifiers)
-    + [protected parseAnnotations](#protected-parseannotations)
-    + [protected parseParams](#protected-parseparams)
-    + [protected sectionHeader](#protected-sectionheader)
-    + [protected methodHeader](#protected-methodheader)
-- [Class: diversen\classTest](#class-diversenclasstest)
-  * [Properties](#properties-1)
-    + [protected output](#protected-output-1)
-  * [Methods](#methods-1)
-    + [public flaf](#public-flaf)
-
-<!-- tocstop -->
-
-### Class: diversen\markdownDocs
-
-### About
-
-Simple class that generates `markdown` from `php` source files (using phpdocs format)
-The real work is done through `Nette\Reflection`. See: https://github.com/nette/reflection
-
-This README.md is created with `php-markdown-docs` using the https://github.com/diversen/php-markdown-docs/blob/master/test.php 
-file. Like this:
-
-    php test.php > README.md
-
-You can also inject a TOC using `markdown-toc`: 
-    
-    markdown-toc -i README.md 
 
 ### Install
 
@@ -59,11 +15,12 @@ You can also inject a TOC using `markdown-toc`:
     echo $md->getOutput();
 ~~~
 
+### Class: diversen\markdownDocs
+
+Simple class that generates `markdown` from `php` source files (using phpdocs format)
+The real work is done through `Nette\Reflection`. See: https://github.com/nette/reflection
+
 #### Properties
-
-##### public toc
-
-    No description
 
 ##### protected output
 

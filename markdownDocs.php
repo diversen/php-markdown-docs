@@ -5,37 +5,9 @@ namespace diversen;
 use Nette\Reflection\ClassType;
 
 /**
- * 
- * 
- * 
- * ### About
- * 
  * Simple class that generates `markdown` from `php` source files (using phpdocs format)
  * The real work is done through `Nette\Reflection`. See: https://github.com/nette/reflection
  * 
- * This README.md is created with `php-markdown-docs` using the https://github.com/diversen/php-markdown-docs/blob/master/test.php 
- * file. Like this:
- * 
- *     php test.php > README.md
- * 
- * You can also inject a TOC using `markdown-toc`: 
- *     
- *     markdown-toc -i README.md 
- * 
- * ### Install
- * 
- *     composer require diversen/php-markdown-docs
- * 
- * ### Usage
- * ~~~php
- *     use diversen\markdownDocs;
- * 
- *     $md = new markdownDocs();
- *     $class = 'PDO';
- *     $md->classToMD($class);
- *      
- *     echo $md->getOutput();
- * ~~~
  */
 class markdownDocs  {
     
@@ -44,8 +16,7 @@ class markdownDocs  {
      * @var string $output
      */
     protected $output = '';
-    
-    public $toc = true;
+
     
     /**
      * Generates markdown output for a specified class
@@ -54,20 +25,8 @@ class markdownDocs  {
      */
     public function classToMD ($class) {
         
-        static $first;
-        
         $r = new ClassType($class);
-        
-        // TOC
-        if (!$first) {
-            $json = file_get_contents('composer.json');
-            $ary = json_decode($json, true);
-            //print_r($ary); die;
-            $this->output.= $this->sectionHeader('Package: ' . $ary['name'], 3);
-            $this->output.= '<!-- toc -->' . $this->getNL();
-            $first = true;
-        }
-
+               
         $this->output.= $this->sectionHeader('Class: ' . $r->getName(), 3);
         
         // Class description
@@ -233,6 +192,8 @@ class markdownDocs  {
      * @return string $output the final markdown output
      */
     public function getOutput () {
-        return $this->output;
+        $str = $this->output;
+        $this->output = '';
+        return $str;
     }
 }

@@ -86,6 +86,7 @@ function generate_docs($options) {
     }
 
     $str = '';
+
     foreach ($options['classes'] as $class) {
         $md->classToMD($class);
         $str.= $md->getOutput();
