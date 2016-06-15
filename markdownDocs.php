@@ -23,8 +23,8 @@ class markdownDocs  {
      * @param string $class e.g. `PDO` or a user class like `diversen\markdownDocs`
      * @return void the method adds to $output
      */
-    public function classToMD ($class) {
-        
+    public function classToMD ($class, $options = []) {
+
         $r = new ClassType($class);
                
         $this->output.= $this->sectionHeader('Class: ' . $r->getName(), 3);
@@ -39,11 +39,50 @@ class markdownDocs  {
         
         // Parse properties
         $this->output.= $this->sectionHeader("Properties");
+        $this->generatePropsMD($r, $props, $options);
+        
+        
+        $this->output.= $this->sectionHeader("Methods");
+        $this->generateMethodMD($methods, $options);     
+    }
+    
+    protected function generateMethodMD ($methods, $options) {
+        
+        
+        
+        foreach ($methods as $method) {
+            if ($method->isPublic()) {
+                 $this->parseMethod($method);
+            }
+        }
+        
+        if (isset($options['public_only'])) {
+            return;
+        }
+
+        foreach ($methods as $method) {
+            if ($method->isProtected()) {
+                 $this->parseMethod($method);
+            }
+        }
+
+        foreach ($methods as $method) {
+            if ($method->isPrivate()) {
+                 $this->parseMethod($method);
+            }
+        }  
+    }
+    
+    protected function generatePropsMD ($r, $props, $options) {
         foreach ($props as $key => $property) {
             $prop = $r->getProperty($key);
             if ($prop->isPublic()) {
                  $this->parseMethod($prop);
             }
+        }
+        
+        if (isset($options['public_only'])) {
+            return;
         }
         
         foreach ($props as $key => $property) {
@@ -59,25 +98,6 @@ class markdownDocs  {
                  $this->parseMethod($prop);
             }
         }
-        
-        $this->output.= $this->sectionHeader("Methods");
-        foreach ($methods as $method) {
-            if ($method->isPublic()) {
-                 $this->parseMethod($method);
-            }
-        }
-
-        foreach ($methods as $method) {
-            if ($method->isProtected()) {
-                 $this->parseMethod($method);
-            }
-        }
-
-        foreach ($methods as $method) {
-            if ($method->isPrivate()) {
-                 $this->parseMethod($method);
-            }
-        }       
     }
     
     /**

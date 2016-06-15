@@ -7,7 +7,7 @@ use diversen\cli;
 use diversen\markdownDocs;
 use diversen\cli\common;
 
-class example extends cli {
+class markdownDocsCli extends cli {
     
     /**
      * Init - the commandline parser
@@ -60,12 +60,20 @@ EOF;
         self::setCommand('generate', array(
             'description' => 'Generates markdown documentation from PHP source files',
         ));
+        
+        self::setOption('generate_public_only', array(
+            'long_name' => '--public',
+            'description' => 'Only create markdown for public methods',
+            'action' => 'StoreTrue',
+        ));
 
         self::setOption('generate_docs', array(
             'long_name' => '--md',
             'description' => 'Generate markdown',
             'action' => 'StoreTrue',
         ));
+        
+        
 
         self::setArgument(
                 'classes', array('description' => 'Specify classes to generate documentation from. They need to be autoloadable',
@@ -76,25 +84,27 @@ EOF;
 
 }
 
+function generate_public_only () {
+    \diversen\conf::setMainIni('public_only', 1);
+}
 
 
 function generate_docs($options) {
-
+    // $public = \diversen\conf::getMainIni('public');
+    $options['public_only'] = \diversen\conf::getMainIni('public_only');
+    
     $md = new markdownDocs();
     if (empty($options['classes'])) {
         common::abort('Specify classes to generate documentation from');
     }
 
-    $str = '';
-
     foreach ($options['classes'] as $class) {
-        $md->classToMD($class);
+        $md->classToMD($class, $options);
         $str.= $md->getOutput();
     }
 
     echo $str;
 }
 
-
-example::init();
-example::run();
+markdownDocsCli::init();
+markdownDocsCli::run();
