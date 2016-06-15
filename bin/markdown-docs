@@ -1,15 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-if (file_exists('vendor/autoload.php')) {
-    include_once "vendor/autoload.php";
-}
-
-if (file_exists('../vendor/autoload.php')) {
-    include_once "../vendor/autoload.php";
-}
-
-//include_once "../markdownDocs.php";
+include_once "vendor/autoload.php";
 
 
 use diversen\cli;

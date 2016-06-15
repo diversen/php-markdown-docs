@@ -1,3 +1,5 @@
 composer-master.lock
+composer.lock
+composer-master.json
 nbproject/*
 vendor/*

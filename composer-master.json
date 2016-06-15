@@ -24,7 +24,7 @@
     },
     "autoload": {
         "psr-4": {
-            "diversen\\": ""
+            "diversen\\": "src"
         }
     },
     "bin": ["bin/markdown-docs"],
