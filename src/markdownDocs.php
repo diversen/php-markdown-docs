@@ -191,7 +191,7 @@ class markdownDocs  {
      */
     protected function sectionHeader ($name, $level = 4) {
         $header = str_repeat('#', $level);
-        return $this->getNL() . "* * * * *" . $this->getNL() . " $header $name". $this->getNL() . "* * * * *" . $this->getNL();
+        return $this->getNL() . "* * * * *" . $this->getNL() . "$header $name". $this->getNL() . "* * * * *" . $this->getNL();
     }
     
     /**

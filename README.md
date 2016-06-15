@@ -35,7 +35,7 @@
 
 * * * * *
 
- ### Class: diversen\markdownDocs
+### Class: diversen\markdownDocs
 
 * * * * *
 
@@ -46,7 +46,7 @@ The real work is done through `Nette\Reflection`. See: https://github.com/nette/
 
 * * * * *
 
- #### Properties
+#### Properties
 
 * * * * *
 
@@ -54,7 +54,7 @@ The real work is done through `Nette\Reflection`. See: https://github.com/nette/
 
 * * * * *
 
- #### Methods
+#### Methods
 
 * * * * *
 
