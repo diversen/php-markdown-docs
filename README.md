@@ -1,4 +1,30 @@
+
+
 <!-- toc -->
+
+- [Install](#install)
+- [Usage](#usage)
+- [Class: diversen\markdownDocs](#class-diversenmarkdowndocs)
+  * [Properties](#properties)
+    + [protected output](#protected-output)
+  * [Methods](#methods)
+    + [public classToMD](#public-classtomd)
+    + [public getOutput](#public-getoutput)
+    + [protected parseMethod](#protected-parsemethod)
+    + [protected getNL](#protected-getnl)
+    + [protected getTab](#protected-gettab)
+    + [protected getModifiers](#protected-getmodifiers)
+    + [protected parseAnnotations](#protected-parseannotations)
+    + [protected parseParams](#protected-parseparams)
+    + [protected sectionHeader](#protected-sectionheader)
+    + [protected methodHeader](#protected-methodheader)
+- [Class: diversen\classTest](#class-diversenclasstest)
+  * [Properties](#properties-1)
+    + [protected output](#protected-output-1)
+  * [Methods](#methods-1)
+    + [public flaf](#public-flaf)
+
+<!-- tocstop -->
 
 ### Install
 
