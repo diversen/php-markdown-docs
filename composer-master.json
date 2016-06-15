@@ -6,7 +6,7 @@
         }
 
     ],
-    "name": "diversen/markdown-docs",
+    "name": "diversen/php-markdown-docs",
     "description": "Generate Markdown documentation from PHP source files. Useful for generating README.md for e.g. github.com",
     "homepage": "https://github.com/diversen/php-markdown-docs",
     "keywords": ["markdown", "phpdocs"],
@@ -28,6 +28,7 @@
             "diversen\\": ""
         }
     },
+    "bin": ["bin/markdown-docs"],
     "extra": {
         "branch-alias": {
             "dev-master": "1.0-dev"

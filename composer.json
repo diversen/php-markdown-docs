@@ -1,4 +1,11 @@
 {
+    "repositories": [
+        {
+            "type": "pear",
+            "url": "https://pear.php.net"
+        }
+
+    ],
     "name": "diversen/php-markdown-docs",
     "description": "Generate Markdown documentation from PHP source files. Useful for generating README.md for e.g. github.com",
     "homepage": "https://github.com/diversen/php-markdown-docs",
@@ -12,13 +19,16 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "nette/reflection": "^2.3"
+        "nette/reflection": "^2.3",
+        "jlaso/console-args": "^1.0",
+        "diversen/cli-framework": "dev-master"
     },
     "autoload": {
         "psr-4": {
             "diversen\\": ""
         }
     },
+    "bin": ["bin/markdown-docs"],
     "extra": {
         "branch-alias": {
             "dev-master": "1.0-dev"
