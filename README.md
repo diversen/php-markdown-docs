@@ -4,6 +4,7 @@
 
 - [Install](#install)
 - [Usage](#usage)
+- [As binary](#as-binary)
 - [Class: diversen\markdownDocs](#class-diversenmarkdowndocs)
   * [Properties](#properties)
   * [Methods](#methods)
@@ -27,6 +28,9 @@
     echo $md->getOutput();
 ~~~
 
+### As binary
+
+    ./vendor/bin/markdown-docs generate --public --run 'diversen\markdownDocs' 'another\class'
 ### Class: diversen\markdownDocs
 
 Simple class that generates `markdown` from `php` source files (using phpdocs format)
