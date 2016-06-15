@@ -5,7 +5,7 @@
 - [About](#about)
 - [Install](#install)
 - [Usage](#usage)
-- [diversen\markdownDocs](#diversenmarkdowndocs)
+- [Class: diversen\markdownDocs](#class-diversenmarkdowndocs)
   * [Properties](#properties)
     + [protected output](#protected-output)
   * [Methods](#methods)
@@ -51,7 +51,7 @@ You can also inject a TOC using `markdown-toc`:
     echo $md->getOutput();
 ~~~
 
-### diversen\markdownDocs
+### Class: diversen\markdownDocs
 
 #### Properties
 

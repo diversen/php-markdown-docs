@@ -66,7 +66,7 @@ class markdownDocs  {
         $methods    = $r->getMethods();
         $props      = $r->getDefaultProperties();
         
-        $this->output.= $this->sectionHeader($r->getName(), 3);
+        $this->output.= $this->sectionHeader('Class: ' . $r->getName(), 3);
         
         // Parse properties
         $this->output.= $this->sectionHeader("Properties");
