@@ -1,11 +1,99 @@
 #!/usr/bin/env php
 <?php
 
+include_once "vendor/autoload.php";
 
-require __DIR__ . '/../vendor/autoload.php';
+use diversen\cli;
+use diversen\markdownDocs;
+use diversen\cli\common;
 
-use JLaso\ConsoleArg\ConsoleArgs;
+class example extends cli {
+    
+    /**
+     * Init - the commandline parser
+     * Init - load functions and classes.
+     * Init - Add major options, like -v
+     */
+    
+    public static function init() {
+        
+        // Init parent with base commands
+        parent::init();
+        
+        self::$parser->description = <<<EOF
+                
+                        /\_/\
+                   ____/ o o \
+                 /~____  =ø= /
+                (______)__m_m)
+                
+    php-markdown-docs. Generate documentation from PHP source files
 
-$consoleArgs = new ConsoleArgs($argv, array('help'), array('arg1', 'arg2'));
-echo $arg1 = $consoleArgs->getArg1;
-$arg2 = $consoleArgs->getArg2;
+EOF;
+        self::$parser->version = '0.0.1';        
+        self::beforeParse();
+    }
+    
+    /**
+     * Run the parser
+     *                              
+     * @return int $ret 0 on success any other int is failure
+     */
+    public static function run() {
+        
+        $result = self::parse();
+        
+        // Execute the result
+        $ret = self::execute($result);
+        
+        // Exit with result from execution
+        exit($ret);
+    }
+
+    /**
+     * Before parsing of the commandline options
+     * This loads all commandline options from file system
+     * and modules found in the database
+     */
+    public static function beforeParse() {
+
+        self::setCommand('generate', array(
+            'description' => 'Generates markdown documentation from PHP source files',
+        ));
+
+        self::setOption('generate_docs', array(
+            'long_name' => '--md',
+            'description' => 'Generate markdown',
+            'action' => 'StoreTrue',
+        ));
+
+        self::setArgument(
+                'classes', array('description' => 'Specify classes to generate documentation from. They need to be autoloadable',
+                'optional' => true,
+                'multiple' => true
+        ));
+    }
+
+}
+
+
+
+function generate_docs($options) {
+
+    $md = new markdownDocs();
+    if (empty($options['classes'])) {
+        common::abort('Specify classes to generate documentation from');
+    }
+
+    $str = '';
+    foreach ($options['classes'] as $class) {
+        $md->classToMD($class);
+        $str.= $md->getOutput();
+    }
+
+    echo $str;
+}
+
+
+example::init();
+example::run();

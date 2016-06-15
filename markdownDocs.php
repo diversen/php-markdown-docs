@@ -45,6 +45,8 @@ class markdownDocs  {
      */
     protected $output = '';
     
+    public $toc = true;
+    
     /**
      * Generates markdown output for a specified class
      * @param string $class e.g. `PDO` or a user class like `diversen\markdownDocs`
@@ -52,19 +54,27 @@ class markdownDocs  {
      */
     public function classToMD ($class) {
         
+        static $toc;
+        
         $r = new ClassType($class);
         
         // TOC
-        $this->output.= '<!-- toc -->' . $this->getNL();
+        if (!$toc) {
+            $this->output.= '<!-- toc -->' . $this->getNL();
+            $toc = true;
+        }
         
+
+       
+        
+        $this->output.= $this->sectionHeader('Class: ' . $r->getName(), 3);
         // Class description
         $this->output.= $r->getDescription() . $this->getNL();
-
-        // Get methods and props
+        
+         // Get methods and props
         $methods    = $r->getMethods();
         $props      = $r->getDefaultProperties();
         
-        $this->output.= $this->sectionHeader('Class: ' . $r->getName(), 3);
         
         // Parse properties
         $this->output.= $this->sectionHeader("Properties");
