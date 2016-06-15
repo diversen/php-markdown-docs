@@ -4,7 +4,7 @@
 
     composer require diversen/php-markdown-docs
 
-### Install as phar
+### Install as PHAR
 
     git clone https://github.com/diversen/php-markdown-docs
 	
@@ -12,7 +12,7 @@
 
 [https://github.com/clue/phar-composer](https://github.com/clue/phar-composer)
 
-### Usage
+### Usage as lib
 ~~~php
     use diversen\markdownDocs;
 
@@ -23,3 +23,6 @@
     echo $md->getOutput();
 ~~~
 
+### Usage as PHAR
+
+    php-markdown-docs.phar generate --run --public 'diversen\cli'

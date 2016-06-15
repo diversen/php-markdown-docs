@@ -1,7 +1,9 @@
 #!/usr/bin/env php
 <?php
 
-include_once "vendor/autoload.php";
+include_once "../vendor/autoload.php";
+include_once "../markdownDocs.php";
+
 
 use diversen\cli;
 use diversen\markdownDocs;
@@ -68,12 +70,10 @@ EOF;
         ));
 
         self::setOption('generate_docs', array(
-            'long_name' => '--md',
+            'long_name' => '--run',
             'description' => 'Generate markdown',
             'action' => 'StoreTrue',
         ));
-        
-        
 
         self::setArgument(
                 'classes', array('description' => 'Specify classes to generate documentation from. They need to be autoloadable',
@@ -81,7 +81,6 @@ EOF;
                 'multiple' => true
         ));
     }
-
 }
 
 function generate_public_only () {
@@ -90,7 +89,7 @@ function generate_public_only () {
 
 
 function generate_docs($options) {
-    // $public = \diversen\conf::getMainIni('public');
+
     $options['public_only'] = \diversen\conf::getMainIni('public_only');
     
     $md = new markdownDocs();
@@ -103,8 +102,8 @@ function generate_docs($options) {
         $md->classToMD($class, $options);
         $str.= $md->getOutput();
     }
-
     echo $str;
+    
 }
 
 markdownDocsCli::init();
