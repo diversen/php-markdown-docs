@@ -44,7 +44,7 @@ with maybe a couple of classes.
 When the lib is installed you have access to the `markdown-docs` binary, and you can
 use in a way similar to this:
 
-    ./bin/markdown-docs --public 'diversen\markdownDocs'
+    ./vendor/bin/markdown-docs --public 'diversen\markdownDocs'
 
 This will just output the markdown documentation to `stdout`, so you will need to redirect it, e.g. to a file.
     
