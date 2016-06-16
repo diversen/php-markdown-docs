@@ -5,8 +5,28 @@ include_once "vendor/autoload.php";
 
 use diversen\markdownDocs;
 use diversen\parseArgv;
+
 $p = new parseArgv();
-// Any flag and flag values
-print_r($p->flags);
-// Values without flag
-print_r($p->values);
+
+if (empty($p->values) ) {
+    echo "./bin/markdown-docs --public 'diversen\parseArgv' 'diversen\markdownDocs'\n";
+    exit(0);
+}
+
+$options = array();
+if (isset($p->flags['public'])) {
+    $options['public_only'] = 1;
+}
+
+$md = new markdownDocs();
+if (empty($p->values)) {
+    echo "Specify classes to be loaded\n";
+    exit(0);
+}
+
+$str = '';
+foreach ($p->values as $class) {
+    $md->classToMD($class, $options);
+    $str.= $md->getOutput();
+}
+echo $str;
